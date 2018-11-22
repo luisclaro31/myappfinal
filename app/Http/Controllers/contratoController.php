@@ -46,7 +46,8 @@ class contratoController extends AppBaseController
      */
     public function create()
     {
-        $docentes = docente::pluck('nombre','id');
+        $docentes = docentes::orderBy('nombre', 'ASC')->pluck('nombre', 'id')->toArray();
+        //$docentes = docente::pluck('nombre','id');
         return view('contratos.create',compact('docentes'));
     }
 
